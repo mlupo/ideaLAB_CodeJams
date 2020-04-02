@@ -1,28 +1,32 @@
-import random # external modules
+import random
 
-PlayerName = input("Hello friend, what is you name? ")
+PlayerName = input("Hello friend, what is your name? ") # take in the Player's name
 
-number = random.randint(1, 10) # random number generation
-Tries = 3
+print("Hi there " + PlayerName + ", guess a number from 1 to 10")
+
+number = random.randint(1, 10) # random number generated here
+
+tries = 3
 PlayerAttempt = 1
 
 win = False
 
-print("Hi there", PlayerName, "let's get ready to guess numbers!!!") # show name
-
-while PlayerAttempt <= Tries: # indentation reminder
-    PlayerGuess = int(input("Guess a number: ")) # take the Player's guess
-    if PlayerGuess == number: # Boolean logic
+while PlayerAttempt <= tries: 
+    PlayerGuess = int(input("Guess a number: "))
+    if PlayerGuess == number:
+        print("You win!!!!")
+        print("Woo!")
         win = True
         break
-    elif PlayerGuess < number: # fancy else if!
-        PlayerAttempt += 1 # increment the attempts
-        print("OH! That's too low!")
-    elif PlayerGuess > number:
-        PlayerAttempt += 1 # increment the attempts
-        print("OH! That's too high!")
+    elif PlayerGuess < number: # fancy way to say else if
+        PlayerAttempt += 1
+        print("Oh, sorry... that was too low")
+    elif PlayerGuess > number: # fancy way to say else if
+        PlayerAttempt += 1
+        print("Oh, sorry... that was too high")
 
 if win:
-    print("Great job! You're right", PlayerName, "...the number was:", number)
+    print("congrats, " + PlayerName + " you are totally right!")
 else:
-    print("I'm so sorry", PlayerName, "...the number was:", number)
+    print("Ouch, " + PlayerName + " you lost :(")
+    print("The number was: " + str(number))
